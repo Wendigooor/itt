@@ -9,6 +9,18 @@ class Api::V1::PostsController < Api::V1::BaseController
     end
   end
 
+  def top_rated
+    limit = params[:limit] || 20
+    posts = Post.top_rated.limit(limit)
+    render json: posts
+  end
+
+  def ip_list
+    ip_list_service = IpListService.new()
+    ip_list_service.perform
+    render json: ip_list_service.results
+  end
+
   private
 
   def post_params

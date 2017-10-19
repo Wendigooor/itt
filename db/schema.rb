@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171017110939) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "ip"
+    t.inet     "ip"
     t.integer  "user_id"
     t.float    "average_ratio"
     t.datetime "created_at",    null: false
